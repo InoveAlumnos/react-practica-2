@@ -1,0 +1,176 @@
+.formsContainer {
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    top: 40px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #323232;
+    margin-top: 20px;
+    padding: 30px;
+}
+
+.initialMessage>h1 {
+    font-weight: 1000;
+    font-size: 32px;
+    line-height: 39px;
+    margin-right: 100px;
+}
+
+.formCommon {
+    display: grid;
+    grid-template-rows: 9% 9% 9% 9% 9% 5% 9% 9% 9%;
+}
+
+.passwordForm {
+    display: grid;
+    grid-template-rows: 22% 22% 22%;
+    width: 350px;
+}
+
+.submitButton {
+    width: 145px;
+    height: 31px;
+    background: #323232;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #FFFFFF;
+    border-radius: 0px;
+    border: 0px;
+    margin-left: 175px;
+    margin-top: 8px;
+}
+
+.submitButton:hover {
+    background: #e0e0e0;
+    color: #323232;
+    border: #323232 solid 2px;
+    transition: linear 0.1s;
+}
+
+.passwordSubmitButton {
+    width: 145px;
+    height: 31px;
+    background: #7E96D3;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #FFFFFF;
+    border-radius: 0px;
+    border: 0px;
+    margin-left: 175px;
+    margin-top: 8px;
+}
+
+.passwordSubmitButton:hover {
+    background: #e0e0e0;
+    color: #7E96D3;
+    border: #7E96D3 solid 2px;
+    transition: linear 0.1s;
+}
+
+@media (min-width:768px) {
+
+    .formsContainer {
+        display: flex;
+        justify-content: start;
+        gap: 200px;
+    }
+
+    .formCommon {
+        margin: 20px;
+        display: inline-grid;
+        grid-template-columns: 70% 30%;
+        grid-template-rows: 20% 20% 20% 20% 20%;
+    }
+
+    .formCommon>p {
+        display: none
+    }
+
+    .passwordForm {
+        display: inline-grid;
+        grid-template-columns: 60%;
+        grid-template-rows: 30% 30% 30%;
+    }
+}
+
+@media (min-width:1024px) {
+    .formsContainer {
+        background-image: url("../assets/img/spydermanBG.png");
+        background-repeat: no-repeat;
+        background-position: center center/cover;
+        background-size: 100%;
+        background-attachment: fixed;
+        height: 100Vh;
+        display: flex;
+        align-items: flex-start;
+        padding-top: 30px;
+        padding-left: 50px;
+        color: #ffffff;
+        font-weight: 500;
+        gap: 50px;
+    }
+
+    .initialMessage>h1 {
+        font-weight: 1000;
+        font-size: 20px;
+        line-height: 39px;
+        margin-right: 100px;
+    }
+
+    .formCommon {
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 16% 16% 16% 16% 16% 16% 16% 16% 16%;
+    }
+
+    .passwordForm {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .userProfileContainer {
+        display: flex;
+        flex-direction: column;
+        margin-top: 25px;
+        background: rgba(210, 93, 120, 0.5);
+        padding: 10px;
+        backdrop-filter: blur(1px);
+        border-radius: 15px;
+        width: 600px;
+        height: 350px;
+        box-shadow: 0px 0px 7px 4px rgba(210, 93, 120, 0.47);
+    }
+
+    .passwordFormContainer {
+        margin-top: 35px;
+        background: rgba(50, 88, 86, 0.7);
+        padding: 10px;
+        backdrop-filter: blur(1px);
+        border-radius: 15px;
+        width: 400px;
+        height: fit-content;
+        box-shadow: 0px 0px 7px 4px rgba(50, 88, 86, 0.7);
+
+    }
+
+    .submitButton {
+        background: rgb(50, 88, 86);
+        margin-left: 95px;
+    }
+
+    .passwordSubmitButton {
+        background: #5E0626;
+        margin-left: 200px;
+        width: 135px;
+
+    }
+
+    .passwordSubmitButton:hover {
+        background: #ffffff;
+        color: #5E0626;
+        border: #5E0626 solid 2px;
+    }
+}
