@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+![Inove banner](inove.jpg)
+Inove Escuela de Código\
+info@inove.com.ar\
+Web: [Inove](http://inove.com.ar)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+# 🛠️ Bienvenidos a la Working Session 🤩 
 
-In the project directory, you can run:
+# 🎯 Objetivos
 
-### `npm start`
+Aplicar los conocimientos adquiridos en:
+* Arquitectura de un proyecto React JS
+* Uso de Hooks useState y useEffect
+* Llamadas a APIs con axios
+* Rutas de la aplicación y contexto de datos
+* Mejorar el estilado aplicando modals de Bootstrap en reemplazo de alert().
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# 📦 Recursos disponibles
+Tenemos disponibles los siguientes recursos:
+* [💅 Figma](https://www.figma.com/file/Tpak3D6n7GYeSNzSRI8ZmS/Marvel-E-commerce?node-id=334%3A237)
+* [📬 Backend](https://inove-marvel-backend.herokuapp.com/ecommerce/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Además podemos utilizar cualquier recurso que tengamos a mano: Documentación, librerías, programas de terceros (como Postman), generadores CSS, código de Stack Overflow, etc;
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# 👩‍💻 Misión
+* Crear y manipular el contexto de los datos de usuario y comics.
+* Crear el API Client para nuestra app para:
+  * Registrar nuestra aplicación como cliente del BE.
+  * Traer los datos de usuario y almacenarlos en nuestro contexto.
+* Generar los mecanismos de registro de usuario e inicio de sesión mediante los formularios provistos.
+* Crear las APIs que conectan los formularios del área personal para presentar y actualizar los datos de ambos formularios.
+* Actualizar los “alert()” que hay en el código por “modals” de bootstrap
 
-### `npm run build`
+# Hands on! 🙌
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
