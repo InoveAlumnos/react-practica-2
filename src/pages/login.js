@@ -1,6 +1,8 @@
 import styles from "./login.module.css";
-import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../App";
+import { loginUser } from "../api/UserApis";
 
 const label = (labelName, type, value, name) => {
   return (
@@ -18,21 +20,31 @@ const label = (labelName, type, value, name) => {
 
 const LoginForm = (props) => {
   // Desestructuramos los props:
-  const { setAuthHook, userData, userDataHook } = props;
-  const { username, password } = userData;
+  const { setAuthHook } = props;
+  const { userData, setUserData } = useContext(UserContext);
+  const { username, password, token } = userData;
 
   // Establecemos la función que guarda los cambios en los datos globales:
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     // Suspendemos el evento para evitar submits erroneos
     event.preventDefault();
-    // Seteamos como autorizado al usuario
-    setAuthHook(true);
-    // Actualizamos el objeto userData en este contexto
-    userData.username = event.target.username.value;
-    userData.password = event.target.password.value;
-    // Actualizamos userData para el contexto global
-    userDataHook(userData);
-    console.table(userData);
+    const username = event.target.username.value;
+    const password = event.target.password.value;
+    try {
+      const response = await loginUser(username, password)
+      // Seteamos como autorizado al usuario
+      // Actualizamos el objeto userData en este contexto
+      userData.username = await response.username;
+      userData.password = password;
+      userData.token = await response.token;
+      // Actualizamos userData para el contexto global
+      setUserData(userData);
+      setAuthHook(true);
+      console.table(userData);
+    } catch (error) {
+      alert(`Ups! parece que algo salió mal: ${error}`)
+    }
+
   };
 
   return (
@@ -46,8 +58,8 @@ const LoginForm = (props) => {
           {/* Cada setXxxx actualiza "onChange" el valor del hook,
           cuando el usuario presiona una tecla en el campo, se actualiza
           el valor de la variable del hook. Es por eso que newName debe disparar a setNewName */}
-          {label("Username:", "text", username,"username")}
-          {label("Password:", "password", password,"password")}
+          {label("Username:", "text", username, "username")}
+          {label("Password:", "password", password, "password")}
           <input className={styles.submitButton} type="submit" value="Log In" />
         </form>
       </div>
