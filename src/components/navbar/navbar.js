@@ -8,7 +8,7 @@ import user from "../../assets/img/user_logo.png";
 import { NavLink } from "react-router-dom";
 
 const Navbar = (props) => {
-    const {auth, userData} = props
+    const { auth } = props
     const button = (url, cls, image) => {
         return <NavLink to={url}><img className={cls} alt="" src={image}></img></NavLink>
     }

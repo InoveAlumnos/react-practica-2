@@ -1,6 +1,9 @@
 import styles from "./profile.module.css";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+
+import { useContext } from "react";
+import { UserContext } from "../appContext";
+
 
 import {
   FormInput,
@@ -8,12 +11,13 @@ import {
   RequiredFormInput,
 } from "../components/form_inputs/formInputs.js";
 
-const Profile = (props) => {
+const Profile = () => {
+  const {userData, setUserData } = useContext(UserContext);
   // Este es un hook de React Router que nos ayuda a redireccionar luego del submit.
   let navigate = useNavigate();
 
   // Desestructuramos los props:
-  const { userData, userDataHook } = props;
+  // const { userData, setUserData } = props;
 
   // Función que maneja el submit del formulario, actualiza el objeto global userData.
   const handleProfileSubmit = (event) => {
@@ -28,7 +32,7 @@ const Profile = (props) => {
     userData.provinceState = e.provinceState.value;
     userData.city = e.city.value;
     userData.postalCode = e.postalCode.value;
-    userDataHook(userData);
+    setUserData(userData);
     console.table(userData);
   };
 
@@ -45,7 +49,7 @@ const Profile = (props) => {
     } else {
       // Actualiza el objeto global userData
       userData.password = e.newPassword.value;
-      userDataHook(userData);
+      setUserData(userData);
       alert("🥳 Password Updated !!");
       navigate("/home", { replace: true });
     }

@@ -1,6 +1,8 @@
 import styles from "./login.module.css";
-import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../appContext";
+import { eCommerceApi, usersLogin} from "../api/apiClient"
 
 const label = (labelName, type, value, name) => {
   return (
@@ -17,22 +19,38 @@ const label = (labelName, type, value, name) => {
 };
 
 const LoginForm = (props) => {
+  const {userData, setUserData } = useContext(UserContext);
+
   // Desestructuramos los props:
-  const { setAuthHook, userData, userDataHook } = props;
+  const { setAuthHook } = props;
   const { username, password } = userData;
 
   // Establecemos la función que guarda los cambios en los datos globales:
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     // Suspendemos el evento para evitar submits erroneos
     event.preventDefault();
     // Seteamos como autorizado al usuario
-    setAuthHook(true);
     // Actualizamos el objeto userData en este contexto
     userData.username = event.target.username.value;
     userData.password = event.target.password.value;
     // Actualizamos userData para el contexto global
-    userDataHook(userData);
-    console.table(userData);
+
+    try {
+      const response = await eCommerceApi.post(usersLogin,
+        {
+          "username": userData.username,
+          "password": userData.password
+        }
+      );
+      console.log(response);
+      userData.uid = response.data.uid
+      userData.token = response.data.token
+      setUserData(userData);
+      setAuthHook(true);
+      console.table(userData);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (

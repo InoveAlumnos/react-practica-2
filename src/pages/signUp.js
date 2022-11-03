@@ -1,35 +1,44 @@
 import styles from "./signUp.module.css";
 import { FormInput } from "../components/form_inputs/formInputs.js";
 import { NavLink, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../appContext";
+import { eCommerceApi, usersSignup} from "../api/apiClient"
+
 
 const SignUpForm = (props) => {
+  const {userData, setUserData } = useContext(UserContext);
   let navigate = useNavigate();
-  const { setAuthHook, userData, userDataHook } = props;
+  const { setAuthHook } = props;
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const e = event.target
-    alert(`Your data: 
-    ✅ First Name: ${e.firstName.value}
-    ✅ Last Name: ${e.lastName.value}
-    ✅ Username: ${e.username.value}
-    ✅ E-mail: ${e.email.value}
-    ✅ Password: ${e.password.value}
-    ✅ Repeated password: ${e.repeatPassword.value}`);
     if (e.password.value !== e.repeatPassword.value) {
       // Previene que las contraseñas ingresadas sean distinas
       alert("😬 New passwords doesn't match");
     } else {
       // Actualiza el objeto global userData
-      setAuthHook(true);
-      alert("🥳 Thank you for joining us!!");
-      userData.firstName = e.firstName.value;
-      userData.lastName = e.lastName.value;
-      userData.username = e.username.value;
-      userData.email = e.email.value;
-      userData.password = e.password.value;
-      userDataHook(userData);
-      navigate("/home", { replace: true });
+      try {
+        const response = await eCommerceApi.post(usersSignup, {
+          "first_name": e.firstName.value,
+          "last_name": e.lastName.value,
+          "email": e.email.value,
+          "username": e.username.value,
+          "password": e.password.value
+        }
+        );
+        console.log(response);
+        userData.firstName = e.firstName.value;
+        userData.lastName = e.lastName.value;
+        userData.username = e.username.value;
+        userData.email = e.email.value;
+        userData.password = e.password.value;
+        setUserData(userData);
+      } catch (error) {
+        console.error(error);
+      }
+      navigate("/login", { replace: true });
     }
   };
 
