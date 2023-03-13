@@ -1,0 +1,24 @@
+server {
+	listen 80;
+	listen [::]:80;
+
+	# SSL configuration
+    listen 443 ssl;
+	listen [::]:443 ssl;
+    ssl_certificate /etc/letsencrypt/live/inovecode.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/inovecode.com/privkey.pem;
+
+	server_name demomarvel.inovecode.com;
+    
+    # Probar que se logea
+    access_log /var/log/nginx/access.log;
+    error_log /var/log/nginx/error.log;
+
+    location / {
+        root /home/react-practica-2/build;
+        #return 301 /admin;
+        # First attempt to serve request as file, then
+        # as directory, then fall back to displaying a 404.
+        try_files $uri $uri/ /index.html =404;
+    }
+}

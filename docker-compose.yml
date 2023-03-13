@@ -1,0 +1,12 @@
+version: "3.1"
+
+services:
+  front-dev:
+    image: node:16.17.0
+    container_name: react-demo-dev
+    command: bash -c "npm install && npm start"
+    working_dir: /prode/front
+    volumes:
+      - .:/prode/front
+    ports:
+      - "3000:3000"
